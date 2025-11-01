@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout title="">
+  <section>
+    <h1>Miguel Mota</h1>
+    <p style="font-size: 1.1rem; color: var(--color-text-light); margin-top: 0.5rem;">
+      Software Engineer & Python Enthusiast
+    </p>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Recent Posts</h2>
+    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+      {posts.map(post => (
+        <li style="margin: 1.5rem 0;">
+          <a href={`/blog/${post.slug}`} style="font-size: 1.1rem; font-weight: 500;">
+            {post.data.title}
+          </a>
+          <div style="color: var(--color-text-light); font-size: 0.9rem; margin-top: 0.25rem;">
+            {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(post.data.date)}
+          </div>
+          {post.data.description && (
+            <p style="margin-top: 0.5rem; color: var(--color-text-light);">
+              {post.data.description}
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
+    <div style="margin-top: 2rem;">
+      <a href="/blog">View all posts &rarr;</a>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>About</h2>
+    <p>
+      Welcome to my personal website. I write about Python, software engineering,
+      and share my projects and experiments.
+    </p>
+    <p>
+      <a href="/about">Learn more about me &rarr;</a>
+    </p>
+  </section>
+</BaseLayout>

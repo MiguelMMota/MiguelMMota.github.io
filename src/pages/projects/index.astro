@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
+---
+
+<BaseLayout title="Projects">
+  <h1>Projects</h1>
+  <p style="color: var(--color-text-light); margin-top: 0.5rem;">
+    Things I've built and experimented with.
+  </p>
+
+  <ul style="list-style: none; padding: 0; margin-top: 2rem;">
+    {projects.map(project => (
+      <li style="margin: 2rem 0; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+        <a href={`/projects/${project.slug}`} style="font-size: 1.25rem; font-weight: 500;">
+          {project.data.title}
+        </a>
+        {project.data.description && (
+          <p style="margin-top: 0.75rem; color: var(--color-text-light);">
+            {project.data.description}
+          </p>
+        )}
+        {project.data.tags && project.data.tags.length > 0 && (
+          <div style="margin-top: 0.75rem;">
+            {project.data.tags.map(tag => (
+              <span style="display: inline-block; background: var(--color-border); padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.85rem; margin-right: 0.5rem;">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
