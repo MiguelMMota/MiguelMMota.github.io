@@ -3,7 +3,7 @@ title: Code fordism
 description: ...how Claude Code is streamlining my output
 date: 2025-11-02T00:11:00Z
 tags: ["software", "AI"]
-draft: true
+draft: false
 ---
 
 > [!NOTE] I spent way too much time this morning gathering my thoughts on the impact of AI on my development workflow. In the end, here's what I want to say that hasn't been said already a million times.
