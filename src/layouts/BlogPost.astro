@@ -105,6 +105,167 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         padding-top: 3rem;
       }
     }
+
+    /* Callout/Alert Boxes */
+    .article-content :global(blockquote) {
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      border-left: 4px solid #4a4a4a;
+      background: #f5f5f5;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(blockquote) {
+        background: #1a1a1a;
+        border-left-color: #505050;
+      }
+    }
+
+    /* Markdown Alert Styling */
+    .article-content :global(.markdown-alert) {
+      padding: 1rem 1.25rem;
+      border-left: 4px solid;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .article-content :global(.markdown-alert > .markdown-alert-title) {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .article-content :global(.markdown-alert > .markdown-alert-title svg) {
+      display: none;
+    }
+
+    /* Note callout - blue theme */
+    .article-content :global(.markdown-alert-note) {
+      border-left-color: #0969da;
+      background: #ddf4ff;
+    }
+
+    .article-content :global(.markdown-alert-note > .markdown-alert-title) {
+      color: #0969da;
+    }
+
+    .article-content :global(.markdown-alert-note > .markdown-alert-title::before) {
+      content: "ℹ️";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(.markdown-alert-note) {
+        border-left-color: #58a6ff;
+        background: #0d1117;
+      }
+      .article-content :global(.markdown-alert-note > .markdown-alert-title) {
+        color: #58a6ff;
+      }
+    }
+
+    /* Important callout - orange theme */
+    .article-content :global(.markdown-alert-important) {
+      border-left-color: #d97706;
+      background: #fff3e0;
+    }
+
+    .article-content :global(.markdown-alert-important > .markdown-alert-title) {
+      color: #d97706;
+    }
+
+    .article-content :global(.markdown-alert-important > .markdown-alert-title::before) {
+      content: "⚡";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(.markdown-alert-important) {
+        border-left-color: #fb923c;
+        background: #0d1117;
+      }
+      .article-content :global(.markdown-alert-important > .markdown-alert-title) {
+        color: #fb923c;
+      }
+    }
+
+    /* Warning callout - orange theme */
+    .article-content :global(.markdown-alert-warning) {
+      border-left-color: #d4a72c;
+      background: #fff8c5;
+    }
+
+    .article-content :global(.markdown-alert-warning > .markdown-alert-title) {
+      color: #d4a72c;
+    }
+
+    .article-content :global(.markdown-alert-warning > .markdown-alert-title::before) {
+      content: "⚠️";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(.markdown-alert-warning) {
+        border-left-color: #f0b72f;
+        background: #0d1117;
+      }
+      .article-content :global(.markdown-alert-warning > .markdown-alert-title) {
+        color: #f0b72f;
+      }
+    }
+
+    /* Tip callout - green theme */
+    .article-content :global(.markdown-alert-tip) {
+      border-left-color: #1a7f37;
+      background: #dafbe1;
+    }
+
+    .article-content :global(.markdown-alert-tip > .markdown-alert-title) {
+      color: #1a7f37;
+    }
+
+    .article-content :global(.markdown-alert-tip > .markdown-alert-title::before) {
+      content: "💡";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(.markdown-alert-tip) {
+        border-left-color: #3fb950;
+        background: #0d1117;
+      }
+      .article-content :global(.markdown-alert-tip > .markdown-alert-title) {
+        color: #3fb950;
+      }
+    }
+
+    /* Caution callout - red theme */
+    .article-content :global(.markdown-alert-caution) {
+      border-left-color: #d1242f;
+      background: #ffebe9;
+    }
+
+    .article-content :global(.markdown-alert-caution > .markdown-alert-title) {
+      color: #d1242f;
+    }
+
+    .article-content :global(.markdown-alert-caution > .markdown-alert-title::before) {
+      content: "🚫";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .article-content :global(.markdown-alert-caution) {
+        border-left-color: #f85149;
+        background: #0d1117;
+      }
+      .article-content :global(.markdown-alert-caution > .markdown-alert-title) {
+        color: #f85149;
+      }
+    }
   </style>
 
   <article>
