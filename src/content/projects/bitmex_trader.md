@@ -13,10 +13,9 @@ Signals are received assynchronously via a web app, and processed according to a
 
 - decides whether to act on the signal received based on current exposure
 - determines position size and order types to use
-- sets stop loss and profit target orders, if applicable to the strategy 
-<br>
-<br>
-{{< figure src="/projects/bitmex_trader_sequence_diagram.png" >}}
+- sets stop loss and profit target orders, if applicable to the strategy
+
+![Bitmex Trader Sequence Diagram](/projects/bitmex_trader_sequence_diagram.png)
 
 #### Key points
 - Written in Python

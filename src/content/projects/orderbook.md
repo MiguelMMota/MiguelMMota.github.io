@@ -13,10 +13,10 @@ These are the main project steps:
 1. gather orderbook data for a set of correlated symbols (I chose cryptocurrency symbols to start, since they're 24h/day liquid markets, and it's relatively easy to read orderbook data via the BitMex API)
 2. normalize and segment data
 3. train and evaluate LSTM models
-4. integrate as a signal generator for the `bitmex trader` to manage holdings for this strategy  
+4. integrate as a signal generator for the `bitmex trader` to manage holdings for this strategy
 
-{{< figure src="/projects/orderbook.png" width="60%">}}
-    *example OrderBook for BTC/USD*
+![OrderBook for BTC/USD](/projects/orderbook.png)
+*example OrderBook for BTC/USD*
 
 #### Key points
 

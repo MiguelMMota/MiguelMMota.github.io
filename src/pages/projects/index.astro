@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allProjects = await getCollection('projects');
+const allProjects = await getCollection('projects', ({ data }) => {
+  return data.draft !== true;
+});
 
 // Render project content
 const projectsWithContent = await Promise.all(
@@ -121,6 +123,10 @@ const sortedYears = Object.keys(projectsByYear).sort((a, b) => {
     @media (min-width: 768px) {
       .project-item {
         max-width: calc(50% - 1.5rem);
+      }
+
+      .project-item.expanded {
+        max-width: 100%;
       }
     }
 
