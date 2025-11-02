@@ -2,7 +2,7 @@
 title: News player
 date: 2023-01-12T00:17:00Z
 tags: ["projects", "fintech", "nltk"]
-draft: true
+draft: false
 ---
 
 ### News player

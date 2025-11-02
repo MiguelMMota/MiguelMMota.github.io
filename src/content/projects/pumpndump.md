@@ -2,7 +2,7 @@
 title: Pump n' Dump
 date: 2019-10-21T00:17:00Z
 tags: ["projects", "sentiment analysis", "ML"]
-draft: true
+draft: false
 ---
 
 ### Pump n' Dump

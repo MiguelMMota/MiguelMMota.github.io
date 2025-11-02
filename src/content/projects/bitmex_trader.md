@@ -2,7 +2,7 @@
 title: Bitmex trader 
 date: 2022-04-29T00:17:00Z
 tags: ["projects", "fintech"]
-draft: true
+draft: false
 ---
 
 ### Bitmex trader

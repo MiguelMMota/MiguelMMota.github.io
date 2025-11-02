@@ -2,7 +2,7 @@
 title: GapUp short
 date: 2019-05-15T00:17:00Z
 tags: ["projects", "fintech", "data analysis"]
-draft: true
+draft: false
 ---
 
 ### GapUp short
