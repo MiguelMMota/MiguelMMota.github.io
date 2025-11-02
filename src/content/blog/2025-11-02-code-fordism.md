@@ -28,18 +28,9 @@ Whether one agrees with these monikers, let's use them for now. It's pretty evid
 > [!IMPORTANT] 
 > The big difference is the skillset needed to thrive. The focus is more than ever on **critical thinking** and **computer system theory**.  You don't need to rely so heavily on your knowledge of a language, tool, or framework.
 
-As AI does more and more of the development grunt work, debugging skills become more and more important. No surprise that quickly finding and fixing bugs relies heavily on critical thinking and a solid theoretical knowledge.
+As AI does more and more of the development grunt work, debugging skills become more and more important. No surprise that quickly finding and fixing bugs relies heavily on critical thinking and a solid theoretical knowledge. As Jonathan Blow indicates in the X thread below, debugging is a crucial skill for an engineer.
 
-<iframe
-  src="https://platform.twitter.com/embed/Tweet.html?id=1981027925542486291"
-  width="550"
-  height="400"
-  style="border: none; overflow: hidden;"
-  scrolling="no"
-  frameborder="0"
-  allowtransparency="true"
-  allow="encrypted-media">
-</iframe>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Dude the very very hardest problems I have debugged took 2 days, and I haven&#39;t had anything that took that long in about 20 years because I got better at programming and debugging. If you are spending a week on a small set of &#39;if&#39; statements, mega omega red flag.</p>&mdash; Jonathan Blow (@Jonathan_Blow) <a href="https://twitter.com/Jonathan_Blow/status/1981027925542486291?ref_src=twsrc%5Etfw">October 22, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Don't go down a rabbit hole
 I saw an experienced web3 developer the other day streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
