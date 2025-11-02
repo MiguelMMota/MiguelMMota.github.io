@@ -1,7 +1,7 @@
 ---
 title: Bitmex trader 
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2022-04-29T00:17:00Z
+tags: ["projects", "fintech"]
 draft: true
 ---
 

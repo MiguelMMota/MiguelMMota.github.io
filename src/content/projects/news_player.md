@@ -1,7 +1,7 @@
 ---
 title: News player
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2023-01-12T00:17:00Z
+tags: ["projects", "fintech", "nltk"]
 draft: true
 ---
 

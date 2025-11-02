@@ -1,7 +1,7 @@
 ---
 title: TradingView strats
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2020-09-02T00:17:00Z
+tags: ["projects", "fintech", "Pinescript"]
 draft: true
 ---
 

@@ -151,7 +151,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .contact-list li::before {
-      content: '>';
+      content: '';
       position: absolute;
       left: 0;
       color: #888;
@@ -165,6 +165,110 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       line-height: 1.7;
       margin: 1rem 0;
       text-align: justify;
+    }
+
+    .rankings-section {
+      margin-top: 4rem;
+      max-width: 50rem;
+    }
+
+    @media (min-width: 768px) {
+      .rankings-section {
+        margin-top: 5rem;
+      }
+    }
+
+    .rankings-grid {
+      display: grid;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .rankings-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .ranking-category {
+      background: #f8f8f8;
+      padding: 1.5rem;
+      border-left: 3px solid #4a4a4a;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ranking-category {
+        background: #1a1a1a;
+        border-left-color: #666;
+      }
+    }
+
+    .ranking-category h3 {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 1.25rem 0;
+      font-weight: 600;
+      color: #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ranking-category h3 {
+        color: #ccc;
+      }
+    }
+
+    .ranking-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: ranking-counter;
+    }
+
+    .ranking-list li {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+      padding-left: 2rem;
+      position: relative;
+      counter-increment: ranking-counter;
+      color: #555;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ranking-list li {
+        color: #aaa;
+      }
+    }
+
+    .ranking-list li::before {
+      content: counter(ranking-counter);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #4a4a4a;
+      min-width: 1.25rem;
+      text-align: right;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ranking-list li::before {
+        color: #888;
+      }
+    }
+
+    .ranking-placeholder {
+      font-style: italic;
+      color: #999;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ranking-placeholder {
+        color: #666;
+      }
     }
   </style>
 
@@ -189,12 +293,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="content-section">
     <p>
-      Outside software development, I enjoy family time, and reading, board games, and watching a good TV show.
+      Outside software development, I enjoy family time, reading, board games, and watching a good TV show.
     </p>
 
     <h2 class="section-header">My Projects</h2>
     <p>
-      I work on a few pet projects in my spare time, mostly in the fintech space.
+      I work on a few pet projects in my spare time, mostly data analysis and more recently in web3.
       Check out my <a href="/projects">projects page</a> for more details on things I've worked on.
     </p>
 
@@ -203,8 +307,108 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       For feedback, suggestions, or any professional queries, please reach out:
     </p>
     <ul class="contact-list">
-      <li>Email: <a href="mailto:miguelmota.contacts@gmail.com">miguelmota.contacts@gmail.com</a></li>
-      <li>GitLab: <a href="https://gitlab.com/miguel_mota" target="_blank" rel="noopener noreferrer">@miguel_mota</a></li>
+      <li>
+        <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); width:1.25rem; height:1.25rem; display:inline-block; z-index:2; color:#888;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </span>
+        Email: <a href="mailto:miguelmota.contacts@gmail.com">miguelmota.contacts@gmail.com</a>
+      </li>
+      <li>
+        <span style="position:absolute; left:0; top:50%; transform:translateY(-50%); width:1.25rem; height:1.25rem; display:inline-block; z-index:2; color:#888;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.73.5.75 5.48.75 11.77c0 4.94 3.2 9.12 7.64 10.6.56.1.76-.24.76-.53 0-.26-.01-1.13-.02-2.05-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.24-1.65-1.24-1.65-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.24.93.1-.73.39-1.21.71-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.16-2.99-.12-.28-.5-1.4.11-2.92 0 0 .95-.31 3.12 1.14a10.8 10.8 0 0 1 2.84-.38c.96.01 1.93.13 2.84.38 2.16-1.45 3.1-1.14 3.1-1.14.62 1.52.24 2.64.12 2.92.72.78 1.15 1.77 1.15 2.99 0 4.29-2.62 5.23-5.11 5.51.4.35.75 1.04.75 2.09 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.77.53 4.44-1.48 7.64-5.66 7.64-10.6C23.25 5.48 18.27.5 12 .5z"/>
+          </svg>
+        </span>
+        GitHub: <a href="https://github.com/MiguelMMota" target="_blank" rel="noopener noreferrer">@MiguelMMota</a>
+      </li>
     </ul>
+  </section>
+
+  <section class="rankings-section">
+    <h2 class="section-header">My Rankings (Top 20)</h2>
+    <div class="rankings-grid">
+      <div class="ranking-category">
+        <h3>Books</h3>
+        <p style="font-style: italic; font-size: 0.8rem;">From the ones I read since 2023</p>
+        <ol class="ranking-list">
+            <li class="ranking-placeholder">1984</li>
+            <li class="ranking-placeholder">The God Delusion</li>
+            <li class="ranking-placeholder">Frankenstein</li>
+            <li class="ranking-placeholder">The Intelligent Investor</li>
+            <li class="ranking-placeholder">The Myth of Sisyphus</li>
+            <li class="ranking-placeholder">To Kill A Mockingbird</li>
+            <li class="ranking-placeholder">The Denial of Death</li>
+            <li class="ranking-placeholder">A Storm of Swords</li>
+            <li class="ranking-placeholder">A Game of Thrones</li>
+            <li class="ranking-placeholder">Dune Messiah</li>
+            <li class="ranking-placeholder">The Picture of Dorian Gray</li>
+            <li class="ranking-placeholder">A Feast for Crows</li>
+            <li class="ranking-placeholder">Night Watch</li>
+            <li class="ranking-placeholder">Deep Work</li>
+            <li class="ranking-placeholder">The Mom Test</li>
+            <li class="ranking-placeholder">Dune</li>
+            <li class="ranking-placeholder">The Prince</li>
+            <li class="ranking-placeholder">A Clash of Kings</li>
+            <li class="ranking-placeholder">Lady Susan</li>
+            <li class="ranking-placeholder">Sense and Sensibility</li>
+        </ol>
+      </div>
+
+      <div class="ranking-category">
+        <h3>Board Games</h3>
+        <p style="font-style: italic; font-size: 0.8rem;">From my collection</p>
+        <ol class="ranking-list">
+          <li class="ranking-placeholder">Innovation</li>
+          <li class="ranking-placeholder">7 Wonders Duel</li>
+          <li class="ranking-placeholder">Detective Club</li>
+          <li class="ranking-placeholder">The Castles of Burgundy</li>
+          <li class="ranking-placeholder">Dune</li>
+          <li class="ranking-placeholder">Azul</li>
+          <li class="ranking-placeholder">Gloomhaven</li>
+          <li class="ranking-placeholder">Brian Boru: High King of Ireland</li>
+          <li class="ranking-placeholder">Root</li>
+          <li class="ranking-placeholder">The Crew: The Quest for Planet Nine</li>
+          <li class="ranking-placeholder">The Binding of Isaac: Four Souls</li>
+          <li class="ranking-placeholder">Herd Mentality</li>
+          <li class="ranking-placeholder">Tiny Towns</li>
+          <li class="ranking-placeholder">Just One</li>
+          <li class="ranking-placeholder">Guardian's Call</li>
+          <li class="ranking-placeholder">Poetry for Neanderthals</li>
+          <li class="ranking-placeholder">Cubitos</li>
+          <li class="ranking-placeholder">Patchwork</li>
+          <li class="ranking-placeholder">Taco Cat Goat Cheese Pizza</li>
+          <li class="ranking-placeholder">War Chest</li>
+        </ol>
+      </div>
+
+      <div class="ranking-category">
+        <h3>TV Shows</h3>
+        <p style="font-style: italic; font-size: 0.8rem;">I'm sure I'm forgetting some...</p>
+        <ol class="ranking-list">
+          <li class="ranking-placeholder">Game of Thrones</li>
+          <li class="ranking-placeholder">Lost</li>
+          <li class="ranking-placeholder">The Wire</li>
+          <li class="ranking-placeholder">Better Call Saul</li>
+          <li class="ranking-placeholder">Chernobyl</li>
+          <li class="ranking-placeholder">Breaking Bad</li>
+          <li class="ranking-placeholder">Dexter</li>
+          <li class="ranking-placeholder">Succession</li>
+          <li class="ranking-placeholder">Prison Break</li>
+          <li class="ranking-placeholder">Broadchurch</li>
+          <li class="ranking-placeholder">This Is Us</li>
+          <li class="ranking-placeholder">Band of Brothers</li>
+          <li class="ranking-placeholder">The Crown</li>
+          <li class="ranking-placeholder">Community</li>
+          <li class="ranking-placeholder">Downton Abbey</li>
+          <li class="ranking-placeholder">Heroes</li>
+          <li class="ranking-placeholder">House of Cards</li>
+          <li class="ranking-placeholder">Brooklyn Nine-Nine</li>
+          <li class="ranking-placeholder">Watchmen</li>
+          <li class="ranking-placeholder">Peaky Blinders</li>
+        </ol>
+      </div>
+    </div>
   </section>
 </BaseLayout>

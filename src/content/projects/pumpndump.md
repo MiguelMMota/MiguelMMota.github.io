@@ -1,7 +1,7 @@
 ---
 title: Pump n' Dump
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2019-10-21T00:17:00Z
+tags: ["projects", "sentiment analysis", "ML"]
 draft: true
 ---
 

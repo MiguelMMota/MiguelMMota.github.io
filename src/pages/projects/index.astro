@@ -2,8 +2,34 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('projects'))
-  .sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
+const allProjects = await getCollection('projects');
+
+// Render project content
+const projectsWithContent = await Promise.all(
+  allProjects.map(async (project) => ({
+    ...project,
+    Content: (await project.render()).Content
+  }))
+);
+
+const sortedProjects = projectsWithContent.sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
+
+// Group projects by year only
+const projectsByYear = sortedProjects.reduce((acc, project) => {
+  const year = project.data.date ? new Date(project.data.date).getFullYear() : 'Unknown';
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(project);
+  return acc;
+}, {} as Record<string, typeof sortedProjects>);
+
+// Sort years in descending order
+const sortedYears = Object.keys(projectsByYear).sort((a, b) => {
+  if (a === 'Unknown') return 1;
+  if (b === 'Unknown') return -1;
+  return Number(b) - Number(a);
+});
 ---
 
 <BaseLayout title="Projects">
@@ -68,17 +94,18 @@ const projects = (await getCollection('projects'))
     }
 
     .project-list {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 0;
       list-style: none;
       padding: 0;
       margin: 0;
+      align-items: flex-start;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       .project-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem 4rem;
+        gap: 0 3rem;
       }
     }
 
@@ -86,6 +113,15 @@ const projects = (await getCollection('projects'))
       padding: 1.25rem 0;
       border-bottom: 1px solid #e5e5e5;
       position: relative;
+      flex: 1 1 auto;
+      min-width: 250px;
+      max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .project-item {
+        max-width: calc(50% - 1.5rem);
+      }
     }
 
     @media (min-width: 1024px) {
@@ -100,12 +136,18 @@ const projects = (await getCollection('projects'))
       }
     }
 
-    .project-item:hover {
+    .project-header {
+      cursor: pointer;
+      padding: 0.5rem 0;
+      transition: background 0.2s ease;
+    }
+
+    .project-header:hover {
       background: linear-gradient(90deg, transparent 0%, rgba(128, 128, 128, 0.03) 100%);
     }
 
     @media (prefers-color-scheme: dark) {
-      .project-item:hover {
+      .project-header:hover {
         background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%);
       }
     }
@@ -114,10 +156,15 @@ const projects = (await getCollection('projects'))
       content: '//';
       position: absolute;
       left: -1.5rem;
-      top: 1.25rem;
+      top: 1.75rem;
       font-family: var(--font-mono);
       color: #ccc;
       font-size: 0.85rem;
+      transition: transform 0.3s ease;
+    }
+
+    .project-item.expanded::before {
+      transform: rotate(90deg);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -131,13 +178,13 @@ const projects = (await getCollection('projects'))
       font-size: 1rem;
       font-weight: 600;
       text-decoration: none;
-      display: block;
+      display: inline-block;
       color: var(--color-text);
+      transition: color 0.2s ease;
     }
 
-    .project-title:hover {
+    .project-header:hover .project-title {
       color: var(--color-link);
-      text-decoration: none;
     }
 
     .project-description {
@@ -170,6 +217,140 @@ const projects = (await getCollection('projects'))
         border-color: #444;
       }
     }
+
+    .timeline-container {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .timeline-container {
+        padding-left: 3rem;
+      }
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #d0d0d0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .timeline-container::before {
+        background: #444;
+      }
+    }
+
+    .year-section {
+      position: relative;
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .year-section {
+        gap: 3rem;
+      }
+    }
+
+    .year-section::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.4rem;
+      width: 6px;
+      height: 6px;
+      background: #4a4a4a;
+      border-radius: 50%;
+      transform: translateX(-2px);
+    }
+
+    @media (min-width: 768px) {
+      .year-section::before {
+        left: -3rem;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .year-section::before {
+        background: #888;
+      }
+    }
+
+    .year-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      padding-left: 0.25rem;
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .year-label {
+        font-size: 0.85rem;
+        padding-left: 0.25rem;
+      }
+    }
+
+    .project-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      opacity: 0;
+    }
+
+    .project-item.expanded .project-content {
+      max-height: 5000px;
+      opacity: 1;
+      transition: max-height 0.5s ease-in, opacity 0.3s ease-in 0.1s;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .project-item.expanded .project-content {
+        border-top-color: #333;
+      }
+    }
+
+    .project-content :global(h3) {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-content :global(h4) {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-content :global(img) {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem 0;
+    }
+
+    .project-content :global(ul) {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .project-content :global(li) {
+      margin: 0.5rem 0;
+    }
   </style>
 
   <header class="page-header">
@@ -177,25 +358,58 @@ const projects = (await getCollection('projects'))
     <p class="subtitle">Things I've Built and Experimented With</p>
   </header>
 
-  <ul class="project-list">
-    {projects.map(project => (
-      <li class="project-item">
-        <a href={`/projects/${project.slug}`} class="project-title">
-          {project.data.title}
-        </a>
-        {project.data.description && (
-          <p class="project-description">
-            {project.data.description}
-          </p>
-        )}
-        {project.data.tags && project.data.tags.length > 0 && (
-          <div class="tag-list">
-            {project.data.tags.map(tag => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
-        )}
-      </li>
+  <div class="timeline-container">
+    {sortedYears.map(year => (
+      <div class="year-section">
+        <div class="year-label">{year}</div>
+        <ul class="project-list">
+          {projectsByYear[year].map(project => {
+            const sortedTags = project.data.tags
+              ? project.data.tags
+                  .filter(tag => tag.toLowerCase() !== 'projects')
+                  .sort((a, b) => a.localeCompare(b))
+              : [];
+
+            return (
+              <li class="project-item" data-project-id={project.slug}>
+                <div class="project-header">
+                  <span class="project-title">
+                    {project.data.title}
+                  </span>
+                  {project.data.description && (
+                    <p class="project-description">
+                      {project.data.description}
+                    </p>
+                  )}
+                  {sortedTags.length > 0 && (
+                    <div class="tag-list">
+                      {sortedTags.map(tag => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div class="project-content">
+                  <project.Content />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     ))}
-  </ul>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectHeaders = document.querySelectorAll('.project-header');
+
+      projectHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const projectItem = header.closest('.project-item');
+          projectItem?.classList.toggle('expanded');
+        });
+      });
+    });
+  </script>
 </BaseLayout>

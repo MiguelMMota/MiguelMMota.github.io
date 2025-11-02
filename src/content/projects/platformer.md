@@ -1,7 +1,7 @@
 ---
 title: Platformer
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2017-06-30T00:17:00Z
+tags: ["projects", "Video Game Dev", "C#", "Unity"]
 draft: true
 ---
 

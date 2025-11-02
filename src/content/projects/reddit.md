@@ -1,7 +1,7 @@
 ---
 title: Reddit tracker 
-date: 2021-04-29T00:17:00Z
-tags: ["projects"]
+date: 2020-04-29T00:17:00Z
+tags: ["projects", "data analysis"]
 draft: true
 ---
 
