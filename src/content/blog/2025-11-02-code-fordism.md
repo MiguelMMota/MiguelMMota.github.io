@@ -6,7 +6,8 @@ tags: ["software", "AI"]
 draft: false
 ---
 
-> [!NOTE] I spent way too much time this morning gathering my thoughts on the impact of AI on my development workflow. In the end, here's what I want to say that hasn't been said already a million times.
+> [!NOTE]
+> I spent way too much time this morning gathering my thoughts on the impact of AI on my development workflow. In the end, here's what I want to say that hasn't been said already a million times.
 
 ## Some change you resist, some you're late to embrace
 Everyday there's a new app, framework, language, workflow, mindset that comes out. If you pick up on everything, you don't have time for anything else. If you resist everything, you'll miss crucial chances to upskill. Like a colleague I once said who was still pining for the good old days of writing COBOL.
@@ -24,12 +25,21 @@ If I'm allowed a paragraph to be pedantic on linguistics and reductive on the de
 
 Whether one agrees with these monikers, let's use them for now. It's pretty evident not only will developers struggle sooner than engineers with AI advancements, it's probably a good thing. In the same way that many technological advances in the last 200 years have rendered a lot of jobs obsolete. It sucks and feels wrong to say it, especially as I'm writing about upgrading my workflow to rely more on AI, but I think that's true. Engineers will just transition to a more managerial role - especially as AI agents already behave like junior and mid-level engineers.
 
-> [!IMPORTANT] The big difference is the skillset needed to thrive. The focus is more than ever on **critical thinking** and **computer system theory**.  You don't need to rely so heavily on your knowledge of a language, tool, or framework.
+> [!IMPORTANT] 
+> The big difference is the skillset needed to thrive. The focus is more than ever on **critical thinking** and **computer system theory**.  You don't need to rely so heavily on your knowledge of a language, tool, or framework.
 
 As AI does more and more of the development grunt work, debugging skills become more and more important. No surprise that quickly finding and fixing bugs relies heavily on critical thinking and a solid theoretical knowledge.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The main skill of programming in the future is going to be debugging AI-generated code</p>&mdash; Jonathan Blow (@Jonathan_Blow) <a href="https://x.com/Jonathan_Blow/status/1981027925542486291">January 18, 2025</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<iframe
+  src="https://platform.twitter.com/embed/Tweet.html?id=1981027925542486291"
+  width="550"
+  height="400"
+  style="border: none; overflow: hidden;"
+  scrolling="no"
+  frameborder="0"
+  allowtransparency="true"
+  allow="encrypted-media">
+</iframe>
 
 ## Don't go down a rabbit hole
 I saw an experienced web3 developer the other day streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
@@ -72,7 +82,8 @@ to
 
 Along the way, it will ask for my input and I will supervise and correct its thought process. When everything is to my satisfaction, I merge the PR.
 
-> [!IMPORTANT] This isn't the 10x engineer meme! I don't just let Claude run rampant in my code base. It's important for me to still be intricately aware of the implementation details, so that I can evaluate future changes or bugs critically. It's not about swapping some good output for three times more garbage. If I can't keep up with what Claude is doing under the hood, that's a problem. It's about not having to manually do it if it can be avoided and remembering or looking up extensive syntax if I can focus on other things.
+> [!IMPORTANT]
+> This isn't the 10x engineer meme! I don't just let Claude run rampant in my code base. It's important for me to still be intricately aware of the implementation details, so that I can evaluate future changes or bugs critically. It's not about swapping some good output for three times more garbage. If I can't keep up with what Claude is doing under the hood, that's a problem. It's about not having to manually do it if it can be avoided and remembering or looking up extensive syntax if I can focus on other things.
 
 <img src="/2025-11-02-code-fordism/10x_engineer_superman.png" alt="10x engineer superman" style="width: 30%; max-width: 300px;">
 
