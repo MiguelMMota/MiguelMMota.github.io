@@ -222,5 +222,5 @@ MIT
 
 ## Contact
 
-- Email: miguelmota.contacts@gmail.com
+- Email: miguelmmota.contacts@gmail.com
 - GitLab: [@miguel_mota](https://gitlab.com/miguel_mota)

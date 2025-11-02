@@ -35,7 +35,7 @@ As AI does more and more of the development grunt work, debugging skills become 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Don't go down a rabbit hole
-I saw an experienced web3 developer the other streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
+I saw an experienced web3 developer the other day streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
 1. There's no one-size-fits-all. Working closely with and delegating to an AI assistant will probably be the norm within the next year or so, but this can take many forms
 2. It's very easy to go overboard. MCPs, for example, can easily bloat the Claude Code context, and degrade results. I stuck with just a couple for now. But there's also complex 3rd-party solutions for huge workflow orchestration, and all, which I'm not that interested in at the moment. First, I need to have a clearer sense of the kinds of things that Claude Code will save me time with
 3. This is incredible for quickly bootstrapping projects, and saving time with dull work. Creating repos, issues, PRs, moving files around, adding new files with boilerplate code, writing basic tests, etc.
