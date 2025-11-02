@@ -24,15 +24,11 @@ If I'm allowed a paragraph to be pedantic on linguistics and reductive on the de
 
 Whether one agrees with these monikers, let's use them for now. It's pretty evident not only will developers struggle sooner than engineers with AI advancements, it's probably a good thing. In the same way that many technological advances in the last 200 years have rendered a lot of jobs obsolete. It sucks and feels wrong to say it, especially as I'm writing about upgrading my workflow to rely more on AI, but I think that's true. Engineers will just transition to a more managerial role - especially as AI agents already behave like junior and mid-level engineers.
 
-> [!IMPORTANT]
-> The big difference is the skillset needed to thrive. The focus is more than ever on **critical thinking** and **computer system theory**.  You don't need to rely so heavily on your knowledge of a language, tool, or framework.
+> [!IMPORTANT] The big difference is the skillset needed to thrive. The focus is more than ever on **critical thinking** and **computer system theory**.  You don't need to rely so heavily on your knowledge of a language, tool, or framework.
 
 As AI does more and more of the development grunt work, debugging skills become more and more important. No surprise that quickly finding and fixing bugs relies heavily on critical thinking and a solid theoretical knowledge.
 
-<blockquote class="twitter-tweet">
-    <a href="https://x.com/Jonathan_Blow/status/1981027925542486291"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+> Jonathan Blow on debugging in the AI era: ["The main skill of programming in the future is going to be debugging AI-generated code"](https://x.com/Jonathan_Blow/status/1981027925542486291)
 
 ## Don't go down a rabbit hole
 I saw an experienced web3 developer the other day streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
@@ -75,10 +71,9 @@ to
 
 Along the way, it will ask for my input and I will supervise and correct its thought process. When everything is to my satisfaction, I merge the PR.
 
-> [!IMPORTANT]
-> This isn't the 10x engineer meme! I don't just let Claude run rampant in my code base. It's important for me to still be intricately aware of the implementation details, so that I can evaluate future changes or bugs critically. It's not about swapping some good output for three times more garbage. If I can't keep up with what Claude is doing under the hood, that's a problem. It's about not having to manually do it if it can be avoided and remembering or looking up extensive syntax if I can focus on other things.
+> [!IMPORTANT] This isn't the 10x engineer meme! I don't just let Claude run rampant in my code base. It's important for me to still be intricately aware of the implementation details, so that I can evaluate future changes or bugs critically. It's not about swapping some good output for three times more garbage. If I can't keep up with what Claude is doing under the hood, that's a problem. It's about not having to manually do it if it can be avoided and remembering or looking up extensive syntax if I can focus on other things.
 
-![10x engineer superman](/2025-11-02-code-fordism/10x_engineer_superman.png)
+<img src="/2025-11-02-code-fordism/10x_engineer_superman.png" alt="10x engineer superman" style="width: 30%; max-width: 300px;">
 
 This unblocks me to work on multiple issues at a time, one in each Claude Code session. As a side note, since my contribution is now much more conversational, I'm trying out interacting with Claude Code with speech-to-text. So far, I've had mixed results because a lot of the code specific terms are misunderstood, and I have to go back and forth to fix prompts. But maybe I'll get better as I practice, or I find some open source tool that is tailored to this.
 
@@ -97,6 +92,6 @@ Maybe a modern version would be:
 As proof that AI isn't there yet, here's the png I used to generate the 10x engineer image, and the first result I got, with the prompt *"Redraw this. It should EXACTLY identical to the original, except: 1. In the last image of the middle row, replace "It's ... !" with "It's a 10x engineer!" 2. Replace the plane and the parrot in the bottom row image with an engineer"*:
 
 <div style="display: flex; gap: 20px;">
-    <img src="/2025-11-02-code-fordism/10x_engineer_original.png" alt="Original image" style="width: 48%;">
-    <img src="/2025-11-02-code-fordism/10x_engineer_first_result.png" alt="First result" style="width: 48%;">
+    <img src="/2025-11-02-code-fordism/10x_engineer_original.png" alt="Original image" style="width: 25%;">
+    <img src="/2025-11-02-code-fordism/10x_engineer_first_result.png" alt="First result" style="width: 25%;">
 </div>
