@@ -53,8 +53,14 @@ const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
         color: var(--color-text);
         background-color: var(--color-bg);
         padding: 2rem 1rem;
-        max-width: 42rem;
+        max-width: 85rem;
         margin: 0 auto;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 3rem 4rem;
+        }
       }
 
       a {

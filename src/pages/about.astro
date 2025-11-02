@@ -3,42 +3,205 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="About">
-  <h1>About Me</h1>
-  <p style="color: var(--color-text-light); font-size: 1.1rem;">Software Engineer based in Portugal</p>
+  <style>
+    .page-header {
+      position: relative;
+      padding: 3rem 0;
+      border-left: 4px solid #4a4a4a;
+      padding-left: 1.5rem;
+      margin-bottom: 4rem;
+    }
 
-  <div style="margin-top: 2rem; margin-bottom: 2rem;">
+    @media (min-width: 768px) {
+      .page-header {
+        padding: 4rem 0 5rem 2rem;
+        margin-bottom: 5rem;
+        border-left-width: 6px;
+      }
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, #8a8a8a 0%, #4a4a4a 100%);
+    }
+
+    .page-header h1 {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    @media (min-width: 768px) {
+      .page-header h1 {
+        font-size: 4rem;
+      }
+    }
+
+    .page-header .subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    @media (min-width: 768px) {
+      .page-header .subtitle {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+    }
+
+    .intro-section {
+      display: grid;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .intro-section {
+        grid-template-columns: 200px 1fr;
+        gap: 3rem;
+        margin-bottom: 5rem;
+      }
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid #d0d0d0;
+      filter: grayscale(20%);
+      justify-self: start;
+    }
+
+    @media (min-width: 768px) {
+      .profile-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .profile-image {
+        border-color: #505050;
+      }
+    }
+
+    .intro-text {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #666;
+      margin: 3rem 0 1.5rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e0e0;
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .section-header {
+        font-size: 0.85rem;
+        margin: 4rem 0 2rem 0;
+        padding-bottom: 0.75rem;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .section-header {
+        color: #999;
+        border-bottom-color: #404040;
+      }
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .contact-list li {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      margin: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .contact-list li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: #888;
+    }
+
+    .content-section {
+      max-width: 50rem;
+    }
+
+    .content-section p {
+      line-height: 1.7;
+      margin: 1rem 0;
+    }
+  </style>
+
+  <header class="page-header">
+    <h1>About Me</h1>
+    <p class="subtitle">Software Engineer / Based in Portugal</p>
+  </header>
+
+  <div class="intro-section">
     <img
       src="/about/miguelMota.jpeg"
       alt="Miguel Mota"
-      style="width: 150px; height: 150px; object-fit: cover; object-position: center 20%; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+      class="profile-image"
     />
-  </div>
-
-  <section style="margin-top: 2rem;">
-    <p>
+    <p class="intro-text">
       My name is Miguel. I'm a Computer Science graduate, and I've lived and worked in various
       countries in Western Europe over the last decade. I like to take on various projects to
       explore programming languages and frameworks. Some of my past projects ranged from topics
       such as data science, fintech, audio/video processing, and game development. In recent
       years, my main focus has been on Python-based projects, and it's been quite a ride so far!
     </p>
+  </div>
 
+  <section class="content-section">
     <p>
       Outside software development, I enjoy spending time with my family, playing board games,
       watching TV shows, and reading a good book.
     </p>
 
-    <h2>My Projects</h2>
+    <h2 class="section-header">My Projects</h2>
     <p>
       I work on a few pet projects in my spare time, mostly in the fintech space.
       Check out my <a href="/projects">projects page</a> for more details on things I've worked on.
     </p>
 
-    <h2>Get in Touch</h2>
+    <h2 class="section-header">Get in Touch</h2>
     <p>
       For feedback, suggestions, or any professional queries, please reach out:
     </p>
-    <ul>
+    <ul class="contact-list">
       <li>Email: <a href="mailto:miguelmota.contacts@gmail.com">miguelmota.contacts@gmail.com</a></li>
       <li>GitLab: <a href="https://gitlab.com/miguel_mota" target="_blank" rel="noopener noreferrer">@miguel_mota</a></li>
     </ul>

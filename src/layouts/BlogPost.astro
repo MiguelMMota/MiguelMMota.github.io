@@ -11,24 +11,114 @@ const { title, date, description } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
-  month: 'long',
+  month: 'short',
   day: 'numeric'
 }).format(date);
 ---
 
 <BaseLayout title={title} description={description}>
+  <style>
+    .article-header {
+      position: relative;
+      padding: 3rem 0;
+      border-left: 4px solid #4a4a4a;
+      padding-left: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .article-header {
+        padding: 4rem 0 5rem 2rem;
+        margin-bottom: 5rem;
+        border-left-width: 6px;
+      }
+    }
+
+    .article-header::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, #8a8a8a 0%, #4a4a4a 100%);
+    }
+
+    .article-header h1 {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      .article-header h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    @media (min-width: 768px) {
+      .article-date {
+        font-size: 0.85rem;
+      }
+    }
+
+    .article-content {
+      max-width: 50rem;
+      line-height: 1.8;
+    }
+
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid #e0e0e0;
+      display: inline-block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .back-link {
+        border-top-color: #404040;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .back-link {
+        margin-top: 5rem;
+        padding-top: 3rem;
+      }
+    }
+  </style>
+
   <article>
-    <header style="margin-bottom: 2rem;">
-      <h1 style="margin-bottom: 0.5rem;">{title}</h1>
-      <time datetime={date.toISOString()} style="color: var(--color-text-light); font-size: 0.9rem;">
+    <header class="article-header">
+      <h1>{title}</h1>
+      <time datetime={date.toISOString()} class="article-date">
         {formattedDate}
       </time>
     </header>
-    <div class="content">
+    <div class="article-content">
       <slot />
     </div>
   </article>
-  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
-    <a href="/blog">&larr; Back to blog</a>
+  <div class="back-link">
+    <a href="/blog">&larr; Back to Blog</a>
   </div>
 </BaseLayout>

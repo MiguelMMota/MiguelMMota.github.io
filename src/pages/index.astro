@@ -9,39 +9,281 @@ const posts = (await getCollection('blog'))
 ---
 
 <BaseLayout title="">
-  <section>
+  <style>
+    .industrial-hero {
+      position: relative;
+      padding: 3rem 0;
+      border-left: 4px solid #4a4a4a;
+      padding-left: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .industrial-hero {
+        padding: 4rem 0 5rem 2rem;
+        margin-bottom: 5rem;
+        border-left-width: 6px;
+      }
+    }
+
+    .industrial-hero::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, #8a8a8a 0%, #4a4a4a 100%);
+    }
+
+    .industrial-hero h1 {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    @media (min-width: 768px) {
+      .industrial-hero h1 {
+        font-size: 4rem;
+      }
+    }
+
+    .industrial-hero .subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    @media (min-width: 768px) {
+      .industrial-hero .subtitle {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+    }
+
+    .section-header {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #666;
+      margin: 3rem 0 1.5rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e0e0;
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .section-header {
+        font-size: 0.85rem;
+        margin: 4rem 0 2rem 0;
+        padding-bottom: 0.75rem;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .section-header {
+        color: #999;
+        border-bottom-color: #404040;
+      }
+    }
+
+    .post-grid {
+      display: grid;
+      gap: 0;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .post-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 4rem;
+      }
+    }
+
+    .post-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #e5e5e5;
+      position: relative;
+    }
+
+    @media (min-width: 1024px) {
+      .post-item {
+        padding: 1.5rem 0;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .post-item {
+        border-bottom-color: #333;
+      }
+    }
+
+    .post-item:hover {
+      background: linear-gradient(90deg, transparent 0%, rgba(128, 128, 128, 0.03) 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .post-item:hover {
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 100%);
+      }
+    }
+
+    .post-item::before {
+      content: '//';
+      position: absolute;
+      left: -1.5rem;
+      top: 1.25rem;
+      font-family: var(--font-mono);
+      color: #ccc;
+      font-size: 0.85rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .post-item::before {
+        color: #555;
+      }
+    }
+
+    .post-title {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: block;
+      color: var(--color-text);
+    }
+
+    .post-title:hover {
+      color: var(--color-link);
+      text-decoration: none;
+    }
+
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .post-description {
+      margin-top: 0.5rem;
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .cta-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.75rem 0;
+      border-top: 2px solid currentColor;
+      color: var(--color-text);
+    }
+
+    @media (min-width: 1024px) {
+      .cta-link {
+        margin-top: 3rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .cta-link:hover {
+      color: var(--color-link);
+      text-decoration: none;
+    }
+
+    .about-box {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 2px solid #e0e0e0;
+      background: linear-gradient(135deg, rgba(240, 240, 240, 0.3) 0%, transparent 100%);
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .about-box {
+        margin-top: 5rem;
+        padding: 3rem;
+        max-width: 60%;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .about-box {
+        border-color: #404040;
+        background: linear-gradient(135deg, rgba(50, 50, 50, 0.3) 0%, transparent 100%);
+      }
+    }
+
+    .about-box::before {
+      content: '[ INFO ]';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: var(--color-bg);
+      padding: 0 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #888;
+      letter-spacing: 0.1em;
+    }
+
+    .about-box p {
+      margin: 0.75rem 0;
+      line-height: 1.6;
+    }
+
+    .about-box p:first-of-type {
+      margin-top: 0;
+    }
+  </style>
+
+  <section class="industrial-hero">
     <h1>Miguel Mota</h1>
-    <p style="font-size: 1.1rem; color: var(--color-text-light); margin-top: 0.5rem;">
-      Software Engineer & Python Enthusiast
-    </p>
+    <p class="subtitle">Software Engineer / Python Enthusiast</p>
   </section>
 
-  <section style="margin-top: 3rem;">
-    <h2>Recent Posts</h2>
-    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+  <section>
+    <h2 class="section-header">Recent Posts</h2>
+    <ul class="post-grid">
       {posts.map(post => (
-        <li style="margin: 1.5rem 0;">
-          <a href={`/blog/${post.slug}`} style="font-size: 1.1rem; font-weight: 500;">
+        <li class="post-item">
+          <a href={`/blog/${post.slug}`} class="post-title">
             {post.data.title}
           </a>
-          <div style="color: var(--color-text-light); font-size: 0.9rem; margin-top: 0.25rem;">
-            {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(post.data.date)}
+          <div class="post-date">
+            {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(post.data.date)}
           </div>
           {post.data.description && (
-            <p style="margin-top: 0.5rem; color: var(--color-text-light);">
+            <p class="post-description">
               {post.data.description}
             </p>
           )}
         </li>
       ))}
     </ul>
-    <div style="margin-top: 2rem;">
-      <a href="/blog">View all posts &rarr;</a>
-    </div>
+    <a href="/blog" class="cta-link">View All Posts &rarr;</a>
   </section>
 
-  <section style="margin-top: 3rem;">
-    <h2>About</h2>
+  <section class="about-box">
     <p>
       Welcome to my personal website. I write about Python, software engineering,
       and share my projects and experiments.
