@@ -28,7 +28,8 @@ Whether one agrees with these monikers, let's use them for now. It's pretty evid
 
 As AI does more and more of the development grunt work, debugging skills become more and more important. No surprise that quickly finding and fixing bugs relies heavily on critical thinking and a solid theoretical knowledge.
 
-> Jonathan Blow on debugging in the AI era: ["The main skill of programming in the future is going to be debugging AI-generated code"](https://x.com/Jonathan_Blow/status/1981027925542486291)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The main skill of programming in the future is going to be debugging AI-generated code</p>&mdash; Jonathan Blow (@Jonathan_Blow) <a href="https://x.com/Jonathan_Blow/status/1981027925542486291">January 18, 2025</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Don't go down a rabbit hole
 I saw an experienced web3 developer the other day streaming with Claude Code, and thought I'd give it a try. What followed was a significant paradigm shift in my development workflow (hence this post). I just started trying this out, but these are my early conclusions:
