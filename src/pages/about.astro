@@ -69,6 +69,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       align-items: flex-start;
       margin-bottom: 4rem;
       grid-template-columns: 1fr;
+      max-width: 50rem;
     }
 
     @media (min-width: 768px) {
@@ -105,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .intro-text {
       margin: 0;
       line-height: 1.7;
-      max-width: 50rem;
+      text-align: justify;
     }
 
     .section-header {
@@ -163,6 +164,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .content-section p {
       line-height: 1.7;
       margin: 1rem 0;
+      text-align: justify;
     }
   </style>
 
@@ -178,18 +180,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       class="profile-image"
     />
     <p class="intro-text">
-      My name is Miguel. I'm a Computer Science graduate, and I've lived and worked in various
-      countries in Western Europe over the last decade. I like to take on various projects to
-      explore programming languages and frameworks. Some of my past projects ranged from topics
-      such as data science, fintech, audio/video processing, and game development. In recent
-      years, my main focus has been on Python-based projects, and it's been quite a ride so far!
+      My name is Miguel. I'm an experienced software developer, and I've lived and worked in various
+      countries in Western Europe over the last decade. I've worked on so many things throughout the years, from
+      data science and ML, fintech, audio/video processing, game development, and web3. This year I teamed up with a friend
+      to work on an SEO-optimised content generator, and I'm now building TrustMe, a decentralised believability-weighted voting system! 
     </p>
   </div>
 
   <section class="content-section">
     <p>
-      Outside software development, I enjoy spending time with my family, playing board games,
-      watching TV shows, and reading a good book.
+      Outside software development, I enjoy family time, and reading, board games, and watching a good TV show.
     </p>
 
     <h2 class="section-header">My Projects</h2>
