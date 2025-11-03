@@ -210,55 +210,52 @@ const posts = (await getCollection('blog'))
       text-decoration: none;
     }
 
-    .about-box {
-      margin-top: 3rem;
-      padding: 2rem;
-      border: 2px solid #e0e0e0;
-      background: linear-gradient(135deg, rgba(240, 240, 240, 0.3) 0%, transparent 100%);
-      position: relative;
+    .greeting-text {
+      margin-bottom: 4rem;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-light);
     }
 
     @media (min-width: 768px) {
-      .about-box {
-        margin-top: 5rem;
-        padding: 3rem;
-        max-width: 60%;
+      .greeting-text {
+        margin-bottom: 5rem;
+        font-size: 1.2rem;
+        max-width: 75%;
       }
     }
 
-    @media (prefers-color-scheme: dark) {
-      .about-box {
-        border-color: #404040;
-        background: linear-gradient(135deg, rgba(50, 50, 50, 0.3) 0%, transparent 100%);
-      }
+    .greeting-text p {
+      margin: 0.5rem 0;
     }
 
-    .about-box::before {
-      content: '[ INFO ]';
-      position: absolute;
-      top: -0.6rem;
-      left: 1rem;
-      background: var(--color-bg);
-      padding: 0 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: #888;
-      letter-spacing: 0.1em;
-    }
-
-    .about-box p {
-      margin: 0.75rem 0;
-      line-height: 1.6;
-    }
-
-    .about-box p:first-of-type {
+    .greeting-text p:first-of-type {
       margin-top: 0;
+    }
+
+    .greeting-text a {
+      color: var(--color-text);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      transition: color 0.2s ease;
+    }
+
+    .greeting-text a:hover {
+      color: var(--color-link);
+      text-decoration: none;
     }
   </style>
 
   <section class="industrial-hero">
     <h1>Miguel Mota</h1>
     <p class="subtitle">Software Engineer / Python Enthusiast</p>
+  </section>
+
+  <section class="greeting-text">
+    <p>
+      Welcome to my page! You can learn more about me <a href="/about">here &rarr;</a>
+    </p>
   </section>
 
   <section>
@@ -281,15 +278,5 @@ const posts = (await getCollection('blog'))
       ))}
     </ul>
     <a href="/blog" class="cta-link">View All Posts &rarr;</a>
-  </section>
-
-  <section class="about-box">
-    <p>
-      Welcome to my personal website. I write about Python, software engineering,
-      and share my projects and experiments.
-    </p>
-    <p>
-      <a href="/about">Learn more about me &rarr;</a>
-    </p>
   </section>
 </BaseLayout>
