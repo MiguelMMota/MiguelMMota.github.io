@@ -256,13 +256,13 @@ const sortedYears = Object.keys(projectsByYear).sort((a, b) => {
       margin-bottom: 3rem;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
       align-items: start;
     }
 
     @media (min-width: 768px) {
       .year-section {
-        gap: 3rem;
+        gap: 2.5rem;
       }
     }
 
@@ -295,15 +295,18 @@ const sortedYears = Object.keys(projectsByYear).sort((a, b) => {
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--color-text-light);
-      padding-left: 0.25rem;
+      padding-left: 0.5rem;
+      padding-right: 0;
       line-height: 1.6;
       white-space: nowrap;
+      margin-left: -1.5rem;
     }
 
     @media (min-width: 768px) {
       .year-label {
         font-size: 0.85rem;
-        padding-left: 0.25rem;
+        padding-left: 0.75rem;
+        margin-left: -2.5rem;
       }
     }
 
