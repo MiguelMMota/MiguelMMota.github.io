@@ -1,6 +1,6 @@
 ---
 title: Bitmex trader 
-date: 2022-04-29T00:17:00Z
+date: 2020-02-29T00:17:00Z
 tags: ["projects", "fintech"]
 draft: false
 ---

@@ -5,9 +5,11 @@ interface Props {
   title: string;
   date: Date;
   description?: string;
+  newerPost?: any;
+  olderPost?: any;
 }
 
-const { title, date, description } = Astro.props;
+const { title, date, description, newerPost, olderPost } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -82,29 +84,107 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       text-align: justify;
     }
 
+    .navigation-section {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid #e0e0e0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .navigation-section {
+        border-top-color: #404040;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .navigation-section {
+        margin-top: 5rem;
+        padding-top: 3rem;
+      }
+    }
+
+    .post-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 50rem;
+    }
+
+    @media (min-width: 768px) {
+      .post-navigation {
+        flex-wrap: nowrap;
+      }
+    }
+
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .nav-link a {
+      display: inline-block;
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.2s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .nav-link a {
+        border-color: #404040;
+      }
+    }
+
+    .nav-link a:hover {
+      border-color: var(--color-link);
+      color: var(--color-link);
+      background: rgba(128, 128, 128, 0.03);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .nav-link a:hover {
+        background: rgba(255, 255, 255, 0.02);
+      }
+    }
+
+    .nav-link.newer {
+      text-align: left;
+    }
+
+    .nav-link.older {
+      text-align: right;
+    }
+
+    .nav-label {
+      display: block;
+      font-size: 0.7rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-title {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .back-link {
       font-family: var(--font-mono);
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 600;
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 2px solid #e0e0e0;
       display: inline-block;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .back-link {
-        border-top-color: #404040;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .back-link {
-        margin-top: 5rem;
-        padding-top: 3rem;
-      }
     }
 
     /* Callout/Alert Boxes */
@@ -280,7 +360,36 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       <slot />
     </div>
   </article>
-  <div class="back-link">
-    <a href="/blog">&larr; Back to Blog</a>
+
+  <div class="navigation-section">
+    {(newerPost || olderPost) && (
+      <nav class="post-navigation">
+        {olderPost ? (
+          <div class="nav-link older">
+            <a href={`/blog/${olderPost.slug}`}>
+              <span class="nav-label">&larr; Previous Post</span>
+              <span class="nav-title">{olderPost.data.title}</span>
+            </a>
+          </div>
+        ) : (
+          <div class="nav-link"></div>
+        )}
+
+        {newerPost ? (
+          <div class="nav-link newer">
+            <a href={`/blog/${newerPost.slug}`}>
+              <span class="nav-label">Next Post &rarr;</span>
+              <span class="nav-title">{newerPost.data.title}</span>
+            </a>
+          </div>
+        ) : (
+          <div class="nav-link"></div>
+        )}
+      </nav>
+    )}
+
+    <div class="back-link">
+      <a href="/blog">&larr; Back to Blog</a>
+    </div>
   </div>
 </BaseLayout>

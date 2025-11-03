@@ -1,6 +1,6 @@
 ---
 title: Orderbook trader
-date: 2020-02-10T00:17:00Z
+date: 2020-05-10T00:17:00Z
 tags: ["projects", "fintech", "data analysis", "ML"]
 draft: false
 ---
@@ -15,8 +15,10 @@ These are the main project steps:
 3. train and evaluate LSTM models
 4. integrate as a signal generator for the `bitmex trader` to manage holdings for this strategy
 
-![OrderBook for BTC/USD](/projects/orderbook.png)
-*example OrderBook for BTC/USD*
+<figure style="display:inline-block; margin:0;">
+    <img src="/projects/orderbook.png" alt="OrderBook for BTC/USD" style="display:block; max-width:100%; height:auto; margin-bottom:0;" />
+        <figcaption style="text-align:center; margin-top:0; font-style:italic;">example OrderBook for BTC/USD</figcaption>
+</figure>
 
 #### Key points
 

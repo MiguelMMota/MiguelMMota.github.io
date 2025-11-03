@@ -1,5 +1,5 @@
 ---
-title: Code fordism
+title: Code Fordism
 description: ...how Claude Code is streamlining my output
 date: 2025-11-02T00:11:00Z
 tags: ["software", "AI"]
@@ -76,7 +76,9 @@ Along the way, it will ask for my input and I will supervise and correct its tho
 > [!IMPORTANT]
 > This isn't the 10x engineer meme! I don't just let Claude run rampant in my code base. It's important for me to still be intricately aware of the implementation details, so that I can evaluate future changes or bugs critically. It's not about swapping some good output for three times more garbage. If I can't keep up with what Claude is doing under the hood, that's a problem. It's about not having to manually do it if it can be avoided and remembering or looking up extensive syntax if I can focus on other things.
 
-<img src="/2025-11-02-code-fordism/10x_engineer_superman.png" alt="10x engineer superman" style="width: 30%; max-width: 300px;">
+<div style="display:flex; justify-content:center;">
+    <img src="/2025-11-02-code-fordism/10x_engineer_superman.png" alt="10x engineer superman" style="height:400px; width:auto;">
+</div>
 
 This unblocks me to work on multiple issues at a time, one in each Claude Code session. As a side note, since my contribution is now much more conversational, I'm trying out interacting with Claude Code with speech-to-text. So far, I've had mixed results because a lot of the code specific terms are misunderstood, and I have to go back and forth to fix prompts. But maybe I'll get better as I practice, or I find some open source tool that is tailored to this.
 
@@ -94,7 +96,7 @@ Maybe a modern version would be:
 ## Bonus
 As proof that AI isn't there yet, here's the png I used to generate the 10x engineer image, and the first result I got, with the prompt *"Redraw this. It should EXACTLY identical to the original, except: 1. In the last image of the middle row, replace "It's ... !" with "It's a 10x engineer!" 2. Replace the plane and the parrot in the bottom row image with an engineer"*:
 
-<div style="display: flex; gap: 20px;">
-    <img src="/2025-11-02-code-fordism/10x_engineer_original.png" alt="Original image" style="width: 25%;">
-    <img src="/2025-11-02-code-fordism/10x_engineer_first_result.png" alt="First result" style="width: 25%;">
+<div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; align-items:flex-start;">
+    <img src="/2025-11-02-code-fordism/10x_engineer_original.png" alt="Original image" style="height:400px; width:auto;">
+    <img src="/2025-11-02-code-fordism/10x_engineer_first_result.png" alt="First result" style="height:400px; width:auto;">
 </div>
