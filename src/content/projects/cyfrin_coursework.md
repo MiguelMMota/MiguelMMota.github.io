@@ -18,7 +18,7 @@ As part of my participation in Cyfrin's fantastic [Blockchain Basics](https://up
 7. [Foundry Cross Chain Rebase Token](https://github.com/MiguelMMota/rebase-token?tab=readme-ov-file#foundry-cross-chain-rebase-token)
 8. [Foundry DAO Governance](https://github.com/MiguelMMota/dao)
 
-Highly recommend these courses if you're starting out or need a refresher on essential web3 knowledge!
+I highly recommend these courses if you're starting out or need a refresher on essential web3 knowledge!
 
 #### Key points
 - web3 theory fundamentals
