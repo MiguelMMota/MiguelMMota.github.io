@@ -30,7 +30,7 @@ Enough of that, onto the first project!
 
 
 ## BitmexTrader
-Some time ago, I was curious to develop an automated trading strategy for cryptocurrencies (don't worry, you don't need to be a Bitcoin or trading aficionado to follow along). After a while, I finally came up with a couple of setups that I was fairly confident in, and quickly put something together to test these strategies in a paper trading account (i.e.: with *fake* money). The [BitmexTrader](/projects/bitmex_trader) repo was born (brace yourself before clicking the link, it does **not** look pretty at time of writing). 
+Some time ago, I was curious to develop an automated trading strategy for cryptocurrencies (don't worry, you don't need to be a Bitcoin or trading aficionado to follow along). After a while, I finally came up with a couple of setups that I was fairly confident in, and quickly put something together to test these strategies in a paper trading account (i.e.: with *fake* money). The [BitmexTrader](/projects/2023-01-12-bitmex_trader) repo was born (brace yourself before clicking the link, it does **not** look pretty at time of writing). 
 
 The solution should consume HTTP requests to asynchronously manage a cryptocurrency portfolio:
 
